@@ -1,6 +1,6 @@
-# Name
+# Spring GraalVM Native Image
 
-Overview
+Build Graal VM Native Image by Spring Feature
 
 ## Description
 
