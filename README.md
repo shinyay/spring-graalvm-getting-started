@@ -1,8 +1,10 @@
 # Spring GraalVM Native Image
 
-Build Graal VM Native Image by Spring Feature
+Build GraalVM Native Image by Spring Feature
 
 ## Description
+### Dependencies
+- Artifact: `org.springframework.experimental:spring-graalvm-native:0.8.2-SNAPSHOT`
 
 ## Demo
 
