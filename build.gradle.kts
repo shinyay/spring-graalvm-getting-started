@@ -38,13 +38,17 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
+//tasks.getByName<BootBuildImage>("bootBuildImage") {
+//	builder = "paketobuildpacks/builder:tiny"
+//	environment = mapOf(
+//			"BP_BOOT_NATIVE_IMAGE" to "1",
+//			"BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS" to """
+//                -Dspring.spel.ignore=true
+//                -Dspring.native.remove-yaml-support=true
+//            """.trimIndent()
+//	)
+//	imageName = "shinyay/hello:graalvm"
+//}
 tasks.getByName<BootBuildImage>("bootBuildImage") {
-	builder = "paketobuildpacks/builder:tiny"
-	environment = mapOf(
-			"BP_BOOT_NATIVE_IMAGE" to "1",
-			"BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS" to """
-                -Dspring.spel.ignore=true                
-                -Dspring.native.remove-yaml-support=true
-            """.trimIndent()
-	)
+	imageName = "shinyay/hello:liberica"
 }
