@@ -5,11 +5,49 @@ Build GraalVM Native Image by Spring Feature
 ## Description
 ### GraalVM
 - [GraalVM Site](https://www.graalvm.org/)
+
 ### Dependencies
 - Spring Boot Version: `Spring Boot 2.4.0-M3`
 - Artifact: `org.springframework.experimental:spring-graalvm-native:0.8.2-SNAPSHOT`
   - Repository: `https://repo.spring.io/snapshot`
   - GraalVM `20.2.0`
+  
+### BootBuildImage Task
+
+```shell script
+$ ./gradlew help --task bootBuildImage
+
+> Task :help
+Detailed task information for bootBuildImage
+
+Path
+     :bootBuildImage
+
+Type
+     BootBuildImage (org.springframework.boot.gradle.tasks.bundling.BootBuildImage)
+
+Options
+     --builder     The name of the builder image to use
+
+     --imageName     The name of the image to generate
+
+     --pullPolicy     The image pull policy
+                      Available values are:
+                           ALWAYS
+                           IF_NOT_PRESENT
+                           NEVER
+
+     --runImage     The name of the run image to use
+
+Description
+     Builds an OCI image of the application using the output of the bootJar task
+
+Group
+     build
+```
+
+
+
 ## Demo
 
 ## Features
