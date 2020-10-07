@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
 	id("org.springframework.boot") version "2.4.0-M3"
@@ -35,4 +36,15 @@ tasks.withType<KotlinCompile> {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "11"
 	}
+}
+
+tasks.getByName<BootBuildImage>("bootBuildImage") {
+	builder = "paketobuildpacks/builder:tiny"
+	environment = mapOf(
+			"BP_BOOT_NATIVE_IMAGE" to "1",
+			"BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS" to """
+                -Dspring.spel.ignore=true                
+                -Dspring.native.remove-yaml-support=true
+            """.trimIndent()
+	)
 }

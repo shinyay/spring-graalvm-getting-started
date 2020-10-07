@@ -46,7 +46,13 @@ Group
      build
 ```
 
+#### Configure build.gradle
+##### Import Type
+```kotlin
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
+```
 
+##### 
 
 ## Demo
 
