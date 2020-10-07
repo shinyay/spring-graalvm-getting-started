@@ -20,11 +20,7 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.experimental:spring-graalvm-native:0.8.2-SNAPSHOT")
-	implementation("org.springframework.boot:spring-boot-starter-web") {
-		exclude(group = "org.apache.tomcat.embed", module = "tomcat-embed-core")
-		exclude(group = "org.apache.tomcat.embed", module = "tomcat-embed-websocket")
-	}
-	implementation("org.apache.tomcat.experimental:tomcat-embed-programmatic:${dependencyManagement.importedProperties["tomcat.version"]}")
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -42,17 +38,18 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
-//tasks.getByName<BootBuildImage>("bootBuildImage") {
-//	builder = "paketobuildpacks/builder:tiny"
-//	environment = mapOf(
-//			"BP_BOOT_NATIVE_IMAGE" to "1",
-//			"BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS" to """
-//                -Dspring.spel.ignore=true
-//                -Dspring.native.remove-yaml-support=true
-//            """.trimIndent()
-//	)
-//	imageName = "shinyay/hello:graalvm"
-//}
 tasks.getByName<BootBuildImage>("bootBuildImage") {
-	imageName = "shinyay/hello:liberica"
+	builder = "paketobuildpacks/builder:tiny"
+	environment = mapOf(
+			"BP_BOOT_NATIVE_IMAGE" to "1",
+			"BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS" to """
+                -Dspring.spel.ignore=true
+                -Dspring.native.remove-yaml-support=true
+            """.trimIndent()
+	)
+	imageName = "shinyay/hello:graalvm-standard-tomcat"
 }
+
+//tasks.getByName<BootBuildImage>("bootBuildImage") {
+//	imageName = "shinyay/hello:liberica"
+//}
