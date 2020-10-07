@@ -52,7 +52,10 @@ Group
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 ```
 
-##### Configure Native Image Build Task 
+##### Configure Native Image Build Task
+
+- [Reference for Maven Plugin](https://repo.spring.io/milestone/org/springframework/experimental/spring-graalvm-native-docs/0.8.0/spring-graalvm-native-docs-0.8.0.zip!/reference/index.html#_configure_the_maven_plugin)
+ 
 ```kotlin
 tasks.getByName<BootBuildImage>("bootBuildImage") {
 	builder = "paketobuildpacks/builder:tiny"
