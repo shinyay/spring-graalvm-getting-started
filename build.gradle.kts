@@ -20,7 +20,11 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.experimental:spring-graalvm-native:0.8.2-SNAPSHOT")
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-web") {
+		exclude(group = "org.apache.tomcat.embed", module = "tomcat-embed-core")
+		exclude(group = "org.apache.tomcat.embed", module = "tomcat-embed-websocket")
+	}
+	implementation("org.apache.tomcat.experimental:tomcat-embed-programmatic:${dependencyManagement.importedProperties["tomcat.version"]}")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
