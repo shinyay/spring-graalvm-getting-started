@@ -108,7 +108,10 @@ dependencies {
 $ ./gradlew clean bootBuildImage
 ```
 
-
+### Run GraalVM Image
+```shell script
+$ docker run --rm -it -p 8080:8080 shinyay/hello:graalvm-lightweight-tomcat
+```
 
 ## Features
 
