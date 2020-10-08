@@ -104,6 +104,10 @@ dependencies {
 
 ## Demo
 
+```shell script
+$ ./gradlew clean bootBuildImage
+```
+
 ## Features
 
 - feature:1
