@@ -69,6 +69,13 @@ tasks.getByName<BootBuildImage>("bootBuildImage") {
 }
 ```
 
+### Bean Lite Mode
+- `@SpringBootApplication(proxyBeanMethods = false)`
+  - @Configuration(proxyBeanMethods = false)
+
+`proxyBeanMethods = false` makes it not to use AspectJ with CGLIB Proxy.
+This mode is called as **Bean Lite Mode**
+
 ## Demo
 
 ## Features
