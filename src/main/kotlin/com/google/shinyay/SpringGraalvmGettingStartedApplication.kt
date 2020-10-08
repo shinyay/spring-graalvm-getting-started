@@ -3,7 +3,7 @@ package com.google.shinyay
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication
+@SpringBootApplication(proxyBeanMethods = false)
 class SpringGraalvmGettingStartedApplication
 
 fun main(args: Array<String>) {
