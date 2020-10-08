@@ -103,10 +103,12 @@ dependencies {
 ```
 
 ## Demo
-
+### Build Container Image
 ```shell script
 $ ./gradlew clean bootBuildImage
 ```
+
+
 
 ## Features
 
