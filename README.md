@@ -11,7 +11,19 @@ Build GraalVM Native Image by Spring Feature
 - Artifact: `org.springframework.experimental:spring-graalvm-native:0.8.2-SNAPSHOT`
   - Repository: `https://repo.spring.io/snapshot`
   - GraalVM `20.2.0`
-  
+
+```kotlin
+repositories {
+	mavenCentral()
+	maven { url = uri("https://repo.spring.io/milestone") }
+	maven { url = uri("https://repo.spring.io/snapshot") }
+}
+
+dependencies {
+	implementation("org.springframework.experimental:spring-graalvm-native:0.8.2-SNAPSHOT")
+}
+```
+
 ### BootBuildImage Task
 
 ```shell script
