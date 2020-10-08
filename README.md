@@ -76,6 +76,20 @@ tasks.getByName<BootBuildImage>("bootBuildImage") {
 `proxyBeanMethods = false` makes it not to use AspectJ with CGLIB Proxy.
 This mode is called as **Bean Lite Mode**
 
+### Lightweight Embedded Tomcat
+- `org.apache.tomcat.experimental:tomcat-embed-programmatic`
+  - Dependency for the lightweight version of Tomcat
+
+```kotlin
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-web") {
+		exclude(group = "org.apache.tomcat.embed", module = "tomcat-embed-core")
+		exclude(group = "org.apache.tomcat.embed", module = "tomcat-embed-websocket")
+	}
+	implementation("org.apache.tomcat.experimental:tomcat-embed-programmatic:${dependencyManagement.importedProperties["tomcat.version"]}")
+}
+```
+
 ## Demo
 
 ## Features
