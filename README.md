@@ -113,6 +113,10 @@ $ ./gradlew clean bootBuildImage
 $ docker run --rm -it -p 8080:8080 shinyay/hello:graalvm-lightweight-tomcat
 ```
 
+```shell script
+$ docker run --rm -it -p 8080:8080 shinyay/hello:liberica
+```
+
 ## Features
 
 - feature:1
