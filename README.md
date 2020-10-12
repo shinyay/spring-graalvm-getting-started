@@ -5,10 +5,10 @@ Build GraalVM Native Image by Spring Feature
 - [Spring GraalVM Native 0.8.1 reference guide](https://repo.spring.io/milestone/org/springframework/experimental/spring-graalvm-native-docs/0.8.1/spring-graalvm-native-docs-0.8.1.zip!/reference/index.html)
 
 ## Description
-### GraalVM
+### 1. GraalVM
 - [GraalVM Site](https://www.graalvm.org/)
 
-### Dependencies
+### 2. Dependencies
 - Spring Boot Version: `Spring Boot 2.4.0-M3`
 - Artifact: `org.springframework.experimental:spring-graalvm-native:0.8.2-SNAPSHOT`
   - Repository: `https://repo.spring.io/snapshot`
@@ -26,7 +26,7 @@ dependencies {
 }
 ```
 
-### BootBuildImage Task
+### 3. BootBuildImage Task
 
 ```shell script
 $ ./gradlew help --task bootBuildImage
@@ -60,13 +60,13 @@ Group
      build
 ```
 
-#### Configure build.gradle
-##### Import Type
+### 4. Configure build.gradle
+#### 4.1 Import Type
 ```kotlin
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 ```
 
-##### Configure Native Image Build Task
+#### 4.2 Configure Native Image Build Task
 
 - [Reference for Maven Plugin](https://repo.spring.io/milestone/org/springframework/experimental/spring-graalvm-native-docs/0.8.0/spring-graalvm-native-docs-0.8.0.zip!/reference/index.html#_configure_the_maven_plugin)
  
@@ -83,14 +83,14 @@ tasks.getByName<BootBuildImage>("bootBuildImage") {
 }
 ```
 
-### Bean Lite Mode
+### 5 Bean Lite Mode
 - `@SpringBootApplication(proxyBeanMethods = false)`
   - @Configuration(proxyBeanMethods = false)
 
 `proxyBeanMethods = false` makes it not to use AspectJ with CGLIB Proxy.
 This mode is called as **Bean Lite Mode**
 
-### Lightweight Embedded Tomcat
+### 6 Lightweight Embedded Tomcat
 - `org.apache.tomcat.experimental:tomcat-embed-programmatic`
   - Dependency for the lightweight version of Tomcat
 
